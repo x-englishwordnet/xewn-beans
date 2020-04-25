@@ -129,7 +129,7 @@ public class Query
 		return (Sense[]) result;
 	}
 
-	public static SyntacticBehaviour querySyntacticBehavourById(XmlObject top, String id)
+	public static SyntacticBehaviour querySyntacticBehaviourById(XmlObject top, String id)
 	{
 		String query = QUERY_SYNTACTIC_BEHAVIOUR + "[@id='" + id + "']";
 		XmlObject[] result = top.selectPath(query);
@@ -142,13 +142,13 @@ public class Query
 
 	public static String queryVerbFrameById(XmlObject top, String id)
 	{
-		SyntacticBehaviour sb = querySyntacticBehavourById(top, id);
+		SyntacticBehaviour sb = querySyntacticBehaviourById(top, id);
 		return sb.getSubcategorizationFrame();
 	}
 
 	public static String queryVerbTemplateById(XmlObject top, String id)
 	{
-		SyntacticBehaviour sb = querySyntacticBehavourById(top, id);
+		SyntacticBehaviour sb = querySyntacticBehaviourById(top, id);
 		return sb.getSentenceTemplate();
 	}
 }
