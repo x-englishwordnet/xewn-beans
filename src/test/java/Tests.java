@@ -2,6 +2,7 @@ import org.apache.xmlbeans.XmlException;
 import org.junit.Before;
 import org.junit.Test;
 import org.xewn.xmlbeans.*;
+import org.xewn.xmlbeans.DefinitionDocument.Definition;
 import org.xewn.xmlbeans.ExampleDocument.Example;
 import org.xewn.xmlbeans.LemmaDocument.Lemma;
 import org.xewn.xmlbeans.LexicalEntryDocument.LexicalEntry;
@@ -45,7 +46,7 @@ public class Tests
 		Synset synset = Query.querySynsetById(this.document, SYNSET_ID);
 		assertNotNull(synset);
 		assertEquals(SYNSET_ID, synset.getId());
-		String definition = synset.getDefinitionArray(0);
+		Definition definition = synset.getDefinitionArray(0);
 		System.out.printf("%s: %s '%s'%n", "getSynsetById", synset.getId(), definition);
 	}
 
@@ -229,7 +230,7 @@ public class Tests
 		{
 			PartOfSpeechType.Enum pos = synset.getPartOfSpeech();
 			assertNotNull(pos);
-			String definition = synset.getDefinitionArray(0);
+			DefinitionDocument.Definition definition = synset.getDefinitionArray(0);
 			assertNotNull(definition);
 
 			for (Example example : synset.getExampleArray())

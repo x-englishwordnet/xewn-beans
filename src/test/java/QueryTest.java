@@ -1,7 +1,9 @@
+import org.apache.xmlbeans.SimpleValue;
 import org.apache.xmlbeans.XmlException;
 import org.junit.Before;
 import org.junit.Test;
 import org.xewn.xmlbeans.*;
+import org.xewn.xmlbeans.DefinitionDocument.Definition;
 import org.xewn.xmlbeans.ExampleDocument.Example;
 import org.xewn.xmlbeans.LemmaDocument.Lemma;
 import org.xewn.xmlbeans.SenseDocument.Sense;
@@ -121,12 +123,12 @@ public class QueryTest
 		{
 			System.out.printf("\tmember: %s%n", lemma.getWrittenForm());
 		}
-
-		System.out.printf("\tdefinition '%s'%n", synset.getDefinitionArray(0));
+		Definition definition = synset.getDefinitionArray(0);
+		System.out.printf("\tdefinition '%s'%n", ((SimpleValue)definition).getStringValue());
 
 		for (Example example : synset.getExampleArray())
 		{
-			System.out.printf("\texample '%s'%n", example);
+			System.out.printf("\texample %s%n", example.getStringValue());
 		}
 
 		for (SynsetRelation synsetRelation : synset.getSynsetRelationArray())
