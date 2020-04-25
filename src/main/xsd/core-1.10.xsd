@@ -132,6 +132,7 @@
         </xsd:complexType>
     </xsd:element>
 
+    <!-- Alternatively, if simpleContent is used in schema -->
     <!--    <xsd:element name='Definition'>-->
     <!--        <xsd:complexType>-->
     <!--            <xsd:simpleContent>-->
@@ -144,23 +145,24 @@
     <!--        </xsd:complexType>-->
     <!--    </xsd:element>-->
 
-    <!--    <xsd:element name='Example'>-->
-    <!--        <xsd:complexType mixed='true'>-->
-    <!--            <xsd:attribute name='language' type='xsd:string' use='optional'/>-->
-    <!--            <xsd:attributeGroup ref='Meta'/>-->
-    <!--        </xsd:complexType>-->
-    <!--    </xsd:element>-->
-
     <xsd:element name='Example'>
-        <xsd:complexType>
-            <xsd:simpleContent>
-                <xsd:extension base="xsd:string">
-                    <xsd:attribute name='language' type='xsd:string' use='optional'/>
-                    <!--<xsd:attributeGroup ref='Meta'/>-->
-                </xsd:extension>
-            </xsd:simpleContent>
+        <xsd:complexType mixed='true'>
+            <xsd:attribute name='language' type='xsd:string' use='optional'/>
+            <xsd:attributeGroup ref='Meta'/>
         </xsd:complexType>
     </xsd:element>
+
+    <!-- Alternatively, if simpleContent is used in schema -->
+    <!--    <xsd:element name='Example'>-->
+    <!--        <xsd:complexType>-->
+    <!--            <xsd:simpleContent>-->
+    <!--                <xsd:extension base="xsd:string">-->
+    <!--                    <xsd:attribute name='language' type='xsd:string' use='optional'/>-->
+    <!--                    &lt;!&ndash;<xsd:attributeGroup ref='Meta'/>&ndash;&gt;-->
+    <!--                </xsd:extension>-->
+    <!--            </xsd:simpleContent>-->
+    <!--        </xsd:complexType>-->
+    <!--    </xsd:element>-->
 
     <xsd:element name='SynsetRelation'>
         <xsd:complexType>

@@ -124,11 +124,17 @@ public class QueryTest
 			System.out.printf("\tmember: %s%n", lemma.getWrittenForm());
 		}
 		Definition definition = synset.getDefinitionArray(0);
-		System.out.printf("\tdefinition '%s'%n", ((SimpleValue)definition).getStringValue());
+		SimpleValue definitionValue = ((SimpleValue) definition);
+		System.out.printf("\tdefinition '%s'%n", definitionValue.getStringValue());
+		// Alternatively
+		// System.out.printf("\tdefinition %s%n", definition.getStringValue());
 
 		for (Example example : synset.getExampleArray())
 		{
-			System.out.printf("\texample %s%n", example.getStringValue());
+			SimpleValue exampleValue = ((SimpleValue) example);
+			System.out.printf("\texample %s%n", exampleValue.getStringValue());
+			// Alternatively
+			// System.out.printf("\texample %s%n", example.getStringValue());
 		}
 
 		for (SynsetRelation synsetRelation : synset.getSynsetRelationArray())
@@ -137,11 +143,6 @@ public class QueryTest
 			assertNotNull(target);
 			SynsetRelationType.Enum type = synsetRelation.getRelType();
 			assertNotNull(type);
-
-			//SynsetRelationType xtype = synsetRelation.xgetRelType();
-			//assertNotNull(type);
-			//SynsetIDREFType idref = synsetRelation.xgetTarget();
-			//assertNotNull(idref);
 			System.out.printf("\tsense relation %s %s%n", type, target);
 		}
 	}

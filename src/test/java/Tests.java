@@ -1,3 +1,4 @@
+import org.apache.xmlbeans.SimpleValue;
 import org.apache.xmlbeans.XmlException;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,7 +48,7 @@ public class Tests
 		assertNotNull(synset);
 		assertEquals(SYNSET_ID, synset.getId());
 		Definition definition = synset.getDefinitionArray(0);
-		System.out.printf("%s: %s '%s'%n", "getSynsetById", synset.getId(), definition);
+		System.out.printf("%s: %s '%s'%n", "getSynsetById", synset.getId(), ((SimpleValue)definition).getStringValue());
 	}
 
 	@Test public void getLemmasFromSynset()
@@ -94,7 +95,8 @@ public class Tests
 		assertEquals(SENSE_ID, sense.getId());
 		Synset synset = Query.querySynsetFromSense(sense);
 		assertNotNull(synset);
-		System.out.printf("%s: %s%n", "getSynsetFromSense", synset.getDefinitionArray(0));
+		Definition definition = synset.getDefinitionArray(0);
+		System.out.printf("%s: %s '%s'%n", "getSynsetFromSense", synset.getId(), ((SimpleValue)definition).getStringValue());
 	}
 
 	@Test public void getSenseBySensekey()
