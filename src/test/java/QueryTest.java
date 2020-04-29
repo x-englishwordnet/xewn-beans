@@ -33,9 +33,7 @@ public class QueryTest
 
 	@Before public void getDocument() throws IOException, XmlException
 	{
-		//String xewnHome = System.getenv("XEWNHOME") + File.separator + "BUILD" + File.separator + "merged";
-		//final File xmlFile = new File(xewnHome, "xewn.xml");
-		String xewnHome = System.getenv("XEWNHOME") + File.separator + "BUILD" + File.separator + "xsrc";
+		String xewnHome = System.getenv("XEWNHOME") + File.separator + "xsrc";
 		final File xmlFile = new File(xewnHome, "wn-verb.communication.xml");
 		this.document = LexicalResourceDocument.Factory.parse(xmlFile);
 	}
@@ -73,10 +71,11 @@ public class QueryTest
 		System.out.printf("\tlemma: %s%n", lemma.getWrittenForm());
 
 		// adj
+		AdjPositionType.Enum adjposition = sense.getAdjposition();
 		AdjPositionType.Enum adjPosition = sense.getAdjPosition();
 		String adjHead = sense.getAdjHead();
 		boolean isAdjHead = sense.getAdjIsHead();
-		System.out.printf("\tadjHead: %s isHead:%b%n", adjHead, isAdjHead);
+		System.out.printf("\tadjHead: %s isHead: %b adjposition: %s adjPosition: %s%n", adjHead, isAdjHead, adjposition, adjPosition);
 
 		// verb
 		List<String> verbFrameIds = (List<String>) sense.getVerbFrames();
@@ -103,10 +102,6 @@ public class QueryTest
 			assertNotNull(target);
 			SenseRelationType.Enum type = senseRelation.getRelType();
 			assertNotNull(type);
-			//SenseRelationType xtype = senseRelation.xgetRelType();
-			//assertNotNull(xtype);
-			//SenseIDREFType idref = senseRelation.xgetTarget();
-			//assertNotNull(idref);
 			System.out.printf("\tsense relation %s %s%n", type, target);
 		}
 	}

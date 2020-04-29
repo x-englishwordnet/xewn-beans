@@ -36,7 +36,7 @@ public class Tests
 
 	@Before public void getDocument() throws IOException, XmlException
 	{
-		String xewnHome = System.getenv("XEWNHOME") + File.separator + "BUILD" + File.separator + "xsrc";
+		String xewnHome = System.getenv("XEWNHOME") + File.separator + "xsrc";
 		final File xmlFile = new File(xewnHome, "wn-verb.body.xml");
 		this.document = LexicalResourceDocument.Factory.parse(xmlFile);
 	}
@@ -104,8 +104,8 @@ public class Tests
 		assertNotNull(this.document);
 		Sense sense = Query.querySenseBySensekey(this.document, SK);
 		assertNotNull(sense);
-		assertEquals(SK, sense.getSensekey());
 		String sensekey = sense.getSensekey();
+		assertEquals(SK, sensekey);
 		System.out.printf("%s: %s%n", "getSenseBySensekey", sensekey);
 	}
 
@@ -114,9 +114,9 @@ public class Tests
 		assertNotNull(this.document);
 		Sense sense = Query.querySenseByDcIdentifier(this.document, DC_IDENTIFIER);
 		assertNotNull(sense);
-		assertEquals(DC_IDENTIFIER, sense.getSensekey());
-		String sensekey = sense.getSensekey();
-		System.out.printf("%s: %s%n", "getSenseByDcIdentifier", sensekey);
+		String identifier = sense.getIdentifier();
+		assertEquals(DC_IDENTIFIER, identifier);
+		System.out.printf("%s: %s%n", "getSenseByDcIdentifier", identifier);
 	}
 
 	@Test public void getSensesByWord()
