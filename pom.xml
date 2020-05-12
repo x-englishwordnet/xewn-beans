@@ -6,7 +6,7 @@
 
     <groupId>io.github.x-englishwordnet</groupId>
     <artifactId>xewn-beans</artifactId>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <name>XEWN Beans</name>
     <description>Provides plain old java beans to bind to X-English WordNet XML files.</description>
     <url>https://github.com/x-englishwordnet/xewn-beans</url>
