@@ -15,3 +15,10 @@ It uses the **Apache's XML Beans** framework and includes a Saxon runtime to imp
 Please refer to the test classes in the source files to get a glimpse as to how it can be used.
 
 ![ ](images/dataflow3.png  "XML beans")
+
+GroupID and ArtifactID on Maven Central:
+
+	<groupId>io.github.x-englishwordnet</groupId>
+	<artifactId>xewn-beans</artifactId>
+	<version>1.0.1</version>
+	<name>XEWN Beans</name>
