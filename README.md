@@ -1,11 +1,12 @@
 <p align="center">
 <img width="256" height="256" src="images/xewn2.png">
+<img width="256" src="images/mavencentral.png">
 </p>
 
 ### XML Beans for XEWN XML schema
 
 
-Provides access to Xtended English Wordnet (XEWN) *src* files through Plain Old Java Object (Pojo) classes or '*beans*'. The Java objects are generated from the XSD typed schema by the XML Beans compiler. Selection of objects at runtime is done with **XPath** syntax.
+Provides access to Xtended English Wordnet (XEWN) *xsrc* files through Plain Old Java Object (Pojo) classes or '*beans*'. The Java objects are generated from the XSD typed schema by the XML Beans compiler. Selection of objects at runtime is done with **XPath** syntax.
 
 It uses the **Apache's XML Beans** framework and includes a Saxon runtime to implement XPath queries.
 
